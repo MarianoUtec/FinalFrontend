@@ -5,6 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ProductList from "./pages/ProductList";
 
 
 
@@ -12,12 +13,22 @@ import Login from "./pages/Login";
 function App() {
 
   return (
-    <div className="min-h-screen flex items-center justify-items-center bg-base-200">
-      <button className="btn btn-primary">
-        Probanding
-      </button>
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/products" element={
+          <ProtectedRoute>
+            <ProductList />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Register />} />
+        <Route path="/" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;

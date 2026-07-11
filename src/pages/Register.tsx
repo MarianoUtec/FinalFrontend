@@ -4,17 +4,19 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
 interface FormState{
-    name:string;
+    username:string;
     email:string;
     password:string;
+    fullName:string;
 }
 
 function Register() {
     const navigate = useNavigate();
     const [form, setForm] = useState<FormState>({
-        name: "",
+        username: "",
         email: "",
-        password: ""
+        password: "",
+        fullName: ""
     });
 
     const [error, setError] = useState("");
@@ -29,7 +31,7 @@ function Register() {
     }
 
     function validateInputs(){
-        if(!form.name || !form.email || !form.password){
+        if(!form.username || !form.email || !form.password || !form.fullName){
             throw new Error("Todo campo es obligatorio");
         }
     }
@@ -74,11 +76,24 @@ function Register() {
                             </label>
                             <input
                                 type="text"
-                                name="name"
-                                value={form.name}
+                                name="username"
+                                value={form.username}
                                 onChange={handleChange}
                                 className="input input-bordered"
-                                placeholder="Nombre"
+                                placeholder="Nombre de usuario"
+                            />
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="label-text">Nombre Completo</span>
+                            </label>
+                            <input
+                                type="text"
+                                name="fullName"
+                                value={form.fullName}
+                                onChange={handleChange}
+                                className="input input-bordered"
+                                placeholder="Nombre completo"
                             />
                         </div>
                         <div>

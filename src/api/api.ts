@@ -22,11 +22,11 @@ api.interceptors.response.use((response) => response, (error) => {
 //AUTH
 
 
-export function login(email: string, password: string) {
-    return api.post<{token:string}>('/auth/login', {email, password});
+export function login(username: string, password: string) {
+    return api.post<{token:string}>('/auth/login', {username, password});
 }
 
-export function register(body: { email: string; password: string; name: string; }) {
+export function register(body: { username: string; email: string; password: string; fullName: string; }) {
     return api.post<{token:string}>('/auth/register', body);
 }
 
