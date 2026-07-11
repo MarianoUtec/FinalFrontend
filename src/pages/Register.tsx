@@ -1,5 +1,5 @@
 import {useState} from "react";
-import RegisterForm, { register } from "../api/api";
+import { register } from "../api/api";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
