@@ -30,6 +30,22 @@ export function register(body: { email: string; password: string; name: string; 
     return api.post<{token:string}>('/auth/register', body);
 }
 
+// LISTA DE PRODUCTOS
+
+export interface ProductDTO{
+    name: string;
+    description: string;
+    category: string;
+    price: number;
+    stock: number;
+    imageUrl: string;
+    available: {"DISPONIBLE": boolean};
+}
+
+export function getProducts() {
+    return api.get<ProductDTO[]>('/products');
+}
+
 
 
 export default api;

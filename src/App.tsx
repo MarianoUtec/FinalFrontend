@@ -1,3 +1,14 @@
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+
+
+
+
 function App() {
 
   return (
